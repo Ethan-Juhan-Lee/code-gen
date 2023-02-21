@@ -1,0 +1,21 @@
+{
+  "name": "code-gen",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Ethan-Juhan-Lee/code-gen.git",
+  "author": "Ethan-Juhan-Lee <Ethan@strum.us>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "compile": "tsc",
+    "start": "npm run compile && node ./dist/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^18.14.0",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.4.0",
+    "graphql": "^16.6.0"
+  }
+}
