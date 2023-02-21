@@ -1,21 +1,31 @@
 {
-  "name": "code-gen",
+  "name": "as4-generating-types-example",
   "version": "1.0.0",
+  "description": "An example of generating types from a schema to use in your resolvers.",
   "main": "index.js",
-  "repository": "git@github.com:Ethan-Juhan-Lee/code-gen.git",
-  "author": "Ethan-Juhan-Lee <Ethan@strum.us>",
-  "license": "MIT",
   "type": "module",
   "scripts": {
-    "compile": "tsc",
-    "start": "npm run compile && node ./dist/index.js"
+    "generate": "graphql-codegen --config codegen.yml",
+    "compile": "npm run generate && tsc",
+    "postinstall": "npm run compile",
+    "start": "npm run compile && node ./dist/index.js",
+    "watch": "concurrently  --names \"CodeGen,TS,Nodemon\" -c \"bgYellow,bgBlue,bgMagenta\" \"graphql-codegen --watch 'src/**/*.ts'\"  \"tsc -w \" \"nodemon ./dist/index.js \""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "^4.0.0",
+    "graphql": "^16.6.0",
+    "graphql-tag": "^2.12.6",
+    "typescript": "^4.8.3"
   },
   "devDependencies": {
-    "@types/node": "^18.14.0",
-    "typescript": "^4.9.5"
-  },
-  "dependencies": {
-    "@apollo/server": "^4.4.0",
-    "graphql": "^16.6.0"
+    "@graphql-codegen/cli": "2.12.0",
+    "@graphql-codegen/typescript": "2.7.3",
+    "@graphql-codegen/typescript-resolvers": "2.7.3",
+    "@types/node": "^18.7.18",
+    "concurrently": "7.4.0",
+    "nodemon": "2.0.19"
   }
 }
