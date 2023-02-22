@@ -1,4 +1,4 @@
-import { MutationResolvers } from '__generated__/resolvers-types';
+import { MutationResolvers } from '../__generated__/resolvers-types';
 
 // Use the generated `MutationResolvers` type to type check our mutations!
 const mutations: MutationResolvers = {
